@@ -1,5 +1,6 @@
 // QUe --> what is the difference between js and jsx
 // --> vscode khud b khud detect kar lega , if we use jsx ... or agar hm js use karnege to hme batna padega vscode ko ki hm react use kar rhe !!
+//prince kumar
 import React from 'react'
 import {motion} from "framer-motion";
 import Founder from "./Founder";
