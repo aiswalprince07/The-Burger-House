@@ -26,20 +26,21 @@ export const connectPassport=()=>{
                         name: profile.displayName,
                         photo: profile.photos[0].value,
                     })
-
-                    return done(null,user);
+                    // console.log(user);
+                    return done(null,newUser);
                 }else{
+                    // console.log(user);
                     return done(null,user);
                 } 
             }  
-        )
+        ) 
     );
     passport.serializeUser((user, done) => {
         done(null, user.id);
       });
 
       passport.deserializeUser(async (id, done) => {
-        // const user = await User.findById(id);
+        const user = await User.findById(id);
         done(null, user);
       });
-}
+}; 
