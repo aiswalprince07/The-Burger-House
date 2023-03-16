@@ -1,10 +1,9 @@
+import ErrorHandler from "../utils/ErrorHandler.js";
+
 export const isAuthenticated=(req,res,next)=>{
     const token=req.cookies["connect.sid"];
-    console.log(token);
     if(!token){
-        return res.status(400).json({
-            
-        })
+        return next(new ErrorHandler("Not Log In",401));
     }
     next();
 }
