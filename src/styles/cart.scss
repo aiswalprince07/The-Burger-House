@@ -12,8 +12,21 @@
 
         >article{
             padding:2rem;
-            justify-content: space-between;
-            margin:1rem 0;
+            >div{
+                display: flex;
+                justify-content: space-between;
+                margin:1rem 0;
+            }
+            // for stylist button !!
+            >a{
+                background-color: $red;
+                color:white;
+                padding:0.5rem 1rem;
+                border-radius: 5px;
+                text-align: center;
+                margin-top: 2rem;
+                float: right;
+            }
         }
     }
 }
@@ -63,6 +76,10 @@
 
 @media screen and (max-width:600px){
     .cart{
-
+        >main>article>a{
+            float:none;
+            display: block;
+            width:100%;
+        }
     }
 }
