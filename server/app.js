@@ -13,7 +13,7 @@ export default app;
 
 dotenv.config({
     path:"./config/config.env",
-})
+})  
 
 //Using Middlewares
 app.use(

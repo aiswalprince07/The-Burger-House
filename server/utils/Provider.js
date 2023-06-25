@@ -14,12 +14,12 @@ export const connectPassport=()=>{
                 // clientSecret: "process.env.GOOGLE_CLIENT_SECRET",
                 // callbackURL: "process.env.GOOGLE_CALLBACK_URL",
             },async function (accessToken, refreshToken, profile, done){
-                //database comse here
+                //database comes here
 
                 const user=await User.findOne({
                     googleId:profile.id,
                 })
-
+ 
                 if(!user){
                     const newUser=await User.create({
                         googleId: profile.id,
