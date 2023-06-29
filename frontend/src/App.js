@@ -18,6 +18,9 @@ import Orders from "./components/admin/Orders";
 import About from "./components/about/About";
 import NotFound from "./components/layout/NotFound";
 import Loader from "./components/layout/Loader";
+import {useDispatch , useSelector} from "react-redux"
+import {loadUser} from "./redux/actions/user.js";
+
 
 import "./styles/header.scss";
 import "./styles/app.scss";
@@ -36,9 +39,17 @@ import "./styles/table.scss";
 import "./styles/orderDetails.scss";
 import "./styles/dasboard.scss";
 import "./styles/about.scss";
-// import "./styles/loader.scss";
+import "./styles/loader.scss";
+import { useEffect } from "react";
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(loadUser());
+  },[dispatch]);
+
   return(
     <Router>
     <Header isAuthenticated={true} />
@@ -57,7 +68,7 @@ function App() {
     <Route path="/admin/dashboard" element={<Dashboard/>}/>
     <Route path="/admin/users" element={<Users/>}/>
     <Route path="/admin/orders" element={<Orders/>}/>
-    {/* <Route path="/loader" element={<Loader/>}/> */}
+    <Route path="/loader" element={<Loader/>}/>
 
 
     <Route path="*" element={<NotFound/>}/> 
