@@ -1,5 +1,5 @@
 import "./styles/app.scss";
-import {BrowserRouter as Router,Route ,Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -18,9 +18,9 @@ import Orders from "./components/admin/Orders";
 import About from "./components/about/About";
 import NotFound from "./components/layout/NotFound";
 import Loader from "./components/layout/Loader";
-import {useDispatch , useSelector} from "react-redux"
-import {loadUser} from "./redux/actions/user.js";
-
+import { useDispatch, useSelector } from "react-redux";
+import { loadUser } from "./redux/actions/User.js";
+import toast, { Toaster } from "react-hot-toast";
 
 import "./styles/header.scss";
 import "./styles/app.scss";
@@ -31,7 +31,7 @@ import "./styles/footer.scss";
 import "./styles/contact.scss";
 import "./styles/cart.scss";
 import "./styles/shipping.scss";
-import "./styles/confirmOrder.scss"; 
+import "./styles/confirmOrder.scss";
 import "./styles/paymentSuccess.scss";
 import "./styles/login.scss";
 import "./styles/profile.scss";
@@ -43,38 +43,49 @@ import "./styles/loader.scss";
 import { useEffect } from "react";
 
 function App() {
+  const dispatch = useDispatch();
+  const { error, message, user, isAuthenticated } = useSelector(
+    (state) => state.auth
+  );
 
-  const dispatch = useDispatch()
-
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(loadUser());
-  },[dispatch]);
+  }, [dispatch]);
 
-  return(
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({
+        type: "clearError",
+      });
+    }
+  }, [dispatch, error]);
+
+  return (
     <Router>
-    <Header isAuthenticated={true} />
-    <Routes>
-    <Route path="/" element={<Home/>}/>
-    <Route path="/contact" element ={<Contact/>}/>
-    <Route path="/about" element={<About/>}/>
-    <Route path="/cart" element={<Cart/>}/>
-    <Route path="/shipping" element={<Shipping/>}/>
-    <Route path="/confirmorder" element={<ConfirmOrder/>}/>
-    <Route path="/paymentsuccess" element={<PaymentSuccess/>}/>
-    <Route path="/login" element={<Login/>}/>
-    <Route path="/me" element={<Profile/>}/>
-    <Route path="/myorders" element={<MyOrders/>}/>
-    <Route path="/order/:id" element={<OrderDetails/>}/>
-    <Route path="/admin/dashboard" element={<Dashboard/>}/>
-    <Route path="/admin/users" element={<Users/>}/>
-    <Route path="/admin/orders" element={<Orders/>}/>
-    <Route path="/loader" element={<Loader/>}/>
+      <Header isAuthenticated={true} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/confirmorder" element={<ConfirmOrder />} />
+        <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/me" element={<Profile />} />
+        <Route path="/myorders" element={<MyOrders />} />
+        <Route path="/order/:id" element={<OrderDetails />} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/admin/users" element={<Users />} />
+        <Route path="/admin/orders" element={<Orders />} />
+        <Route path="/loader" element={<Loader />} />
 
-
-    <Route path="*" element={<NotFound/>}/> 
-    </Routes>
-    <Footer/>
-  </Router>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+      <Toaster />
+    </Router>
   );
 }
 

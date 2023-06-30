@@ -3,6 +3,7 @@ import mongoose, { mongo } from "mongoose";
 const schema = new mongoose.Schema({
     name:String,
     photo:String,
+    
     googleId: {
         type:String,
         required:true,

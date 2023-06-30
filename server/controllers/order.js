@@ -59,7 +59,9 @@ export const placeOrderOnline = asyncError(async (req, res, next) => {
     shippingCharges,
     totalAmount,
     user,
+  
   };
+
 
   const options = {
     amount: Number(totalAmount) * 100,
