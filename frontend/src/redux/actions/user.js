@@ -1,5 +1,5 @@
 import axios from "axios";
-import { server } from "../store";
+import { server } from "../store.js";
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -7,8 +7,8 @@ export const loadUser = () => async (dispatch) => {
       type: "loadUserRequest",
     });
 
-    const {data} = await axios.get(`${server}/me`,{
-        withCredentials:true,
+    const { data } = await axios.get(`${server}/me`, {
+      withCredentials: true,
     });
 
     dispatch({

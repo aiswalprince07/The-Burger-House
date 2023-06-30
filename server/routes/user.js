@@ -15,7 +15,9 @@ router.get(
   passport.authenticate("google", {
     scope: ["profile"],
   })
+  
 );
+
 
 router.get(
   "/login",
