@@ -10,12 +10,10 @@ export const connectPassport=()=>{
                 clientID: process.env.GOOGLE_CLIENT_ID,
                 clientSecret: process.env.GOOGLE_CLIENT_SECRET,
                 callbackURL: process.env.GOOGLE_CALLBACK_URL,
-                // clientID: "dd",
-                // clientSecret: "process.env.GOOGLE_CLIENT_SECRET",
-                // callbackURL: "process.env.GOOGLE_CALLBACK_URL",
             },async function (accessToken, refreshToken, profile, done){
                 //database comes here
 
+                // (When user logged in ..then it this function runs)
                 const user=await User.findOne({
                     googleId:profile.id,
                 })

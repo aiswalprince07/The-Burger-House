@@ -1,9 +1,10 @@
 import { asyncError } from "../middlewares/errorMiddleware.js";
 
 export const myProfile =(req,res,next)=>{
+  console.log("ff",req.user);
     res.status(200).json({
         success:true,
-        user:req.user,
+        user: req.user,
     })
 }
 export const logout=(req,res,next)=>{

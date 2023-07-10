@@ -6,14 +6,14 @@ import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
 const router = express.Router();
 
 router.get("/googlelogin",passport.authenticate("google",{
-    scope:["profile"],
+    scope:["profile"],   // but strategy nhi to ...Provider me strategy banyenge 
 }));
 router.get(
     "/login",
     passport.authenticate("google"),
-    (req,res,next)=>{
-        res.send("Logged In");
-    }
+     (req,res,next)=>{
+      res.end("Logged IN");
+     }
     // passport.authenticate("google", {
     // scope:["profile"],
     //   successRedirect: process.env.FRONTEND_URL,

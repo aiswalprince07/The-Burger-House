@@ -12,7 +12,6 @@
         color:white;
         width: 50%;
         text-align: center;
-        
         margin-left:23rem; 
         >div{
             margin:10rem;
@@ -30,5 +29,13 @@
             font-family: Arial, Helvetica, sans-serif;
             line-height: 200%;
         }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .founder>div{
+        flex-direction: column;
+        width:100%;
     }
 }
