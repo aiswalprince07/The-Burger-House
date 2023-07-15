@@ -1,5 +1,6 @@
 import axios from "axios";
-import { server } from "../store";
+
+import { server } from "../store.js";
 
 export const loadUser = () => async (dispatch) => {
   try {

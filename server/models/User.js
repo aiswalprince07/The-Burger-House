@@ -1,22 +1,24 @@
-import mongoose, { Mongoose } from "mongoose";
-const schema =new mongoose.Schema({
-    name: String,
-    photo: String,
+import mongoose, { mongo } from "mongoose";
+
+const schema = new mongoose.Schema({
+    name:String,
+    photo:String,
+    
     googleId: {
-    type: String,
-    required: true,
-    unique: true,
-    }, 
-    role: {
-    type: "String",
-    enum: ["admin", "user"],
-    default: "user",
+        type:String,
+        required:true,
+        unique:true,
+    },
+    role:{
+        type:"String",
+        enum:["admin","user"],
+        default:"user",
     },
 
-    createdAt: {
-    type: Date,
-    default: Date.now,
-    },
+    createAt:{
+        type:Date,
+        default:Date.now,
+    }
 });
 
-export const User =mongoose.model("User",schema);
+export const User = mongoose.model("User",schema);

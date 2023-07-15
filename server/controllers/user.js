@@ -1,5 +1,8 @@
 import { asyncError } from "../middlewares/errorMiddleware.js";
+import { User } from "../models/User.js";
+import { Order } from "../models/Order.js";
 
+<<<<<<< HEAD
 export const myProfile =(req,res,next)=>{
   // console.log("ff",req.user);
     res.status(200).json({
@@ -17,12 +20,75 @@ export const logout=(req,res,next)=>{
         });
     })
 } 
+=======
+export const myProfile = (req, res, next) => {
+  res.status(200).json({
+    success: true,
+    user: req.user,
+  });
+};
+>>>>>>> 1ec0a0296e45688b0ce88faa19b7a3da2bb1bc8f
+
+export const logout = (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) return next(err);
+    res.clearCookie("connect.sid",{
+
+    // When you deploy you project
+    cookie:{
+      secure:true,
+      httpOnly:true,
+      sameSite:"none",
+    },
+
+    // When you are in development mode
+    // cookie:{
+    //   secure:false,
+    //   httpOnly:false,
+    //   sameSite:false,
+    // },
 
 
-export const getAdminUsers = asyncError(async (req, res, next) => {
-    const users = await User.find({});
+    });
     res.status(200).json({
-      success: true,
-      users,
+      message: "Logged Out",
     });
   });
+};
+
+export const getAdminUsers = asyncError(async (req, res, next) => {
+  const users = await User.find({});
+
+  res.status(200).json({
+    success: true,
+    users,
+  });
+});
+
+export const getAdminStats = asyncError(async (req, res, next) => {
+  const usersCount = await User.countDocuments({});
+
+  const orders = await Order.find({});
+
+  const preparingOrders = orders.filter((i) => i.orderStatus === "Preparing");
+  const shippedOrders = orders.filter((i) => i.orderStatus === "Shipped");
+  const deliveredOrders = orders.filter((i) => i.orderStatus === "Delivered");
+
+  let totalIncome = 0;
+
+  orders.forEach((i) => {
+    totalIncome += i.totalAmount;
+  });
+
+  res.status(200).json({
+    success: true,
+    usersCount,
+    ordersCount: {
+      total: orders.length,
+      preparing: preparingOrders.length,
+      shipped:shippedOrders.length,
+      delivered: deliveredOrders.length
+    },
+    totalIncome,
+  });
+});

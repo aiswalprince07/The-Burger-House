@@ -18,4 +18,4 @@ export default store;
 
 // export const server = "http://localhost:4000/api/v1/";
 
-export const server = "https://burgerhouse-phi.vercel.app/api/v1"
+export const server = "https://burgerhouse-phi.vercel.app/api/v1";

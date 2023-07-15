@@ -1,3 +1,5 @@
+
+import "./styles/app.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import Footer from "./components/layout/Footer";
@@ -40,6 +42,7 @@ import "./styles/orderDetails.scss";
 import "./styles/dashboard.scss";
 import "./styles/about.scss";
 
+
 function App() {
   const dispatch = useDispatch();
   const { error, message, isAuthenticated, user } = useSelector(
@@ -49,7 +52,6 @@ function App() {
   useEffect(() => {
     dispatch(loadUser());
   }, [dispatch]);
-
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -109,7 +111,6 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-
       <Footer />
       <Toaster />
     </Router>
