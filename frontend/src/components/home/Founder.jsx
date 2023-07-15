@@ -1,6 +1,7 @@
 import React from 'react';
 import {motion} from "framer-motion";
 import mee from "../../assets/founder.webp";
+import prince_pic from "../../assets/prince_kumar.jpg";
 
 const Founder = () => {
     const options ={
@@ -17,7 +18,7 @@ const Founder = () => {
     <section className="founder">
         <motion.div {...options}>
            <div className='first-CoFounder'>
-           <img src={mee} alt="founder" height={200} width={200}/>
+           <img src={prince_pic} alt="founder" height={200} width={200}/>
             <h3>Prince kumar</h3>
             <p> Hey,Everyone I am prince kumar, Co-founder of MBA Burger wla .
             {/* <br/>
@@ -33,7 +34,6 @@ const Founder = () => {
             our aim to create the most tasty buger on planet. */}
             </p>
             </div>
-            
         </motion.div>
         
     </section>

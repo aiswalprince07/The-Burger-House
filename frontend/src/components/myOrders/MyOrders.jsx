@@ -38,10 +38,8 @@ const MyOrders = () => {
             </thead>
 
             <tbody>
-               console.log(orders);
               {orders &&
-                orders.map((i) => (
-                  
+                orders.map((i) => (     
                   <tr key={i._id}>
                     <td>#{i._id}</td>
                     <td>{i.orderStatus}</td>

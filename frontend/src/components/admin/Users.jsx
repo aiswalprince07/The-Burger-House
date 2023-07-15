@@ -8,6 +8,7 @@ const Users = () => {
   const dispatch = useDispatch();
 
   const { loading, users } = useSelector((state) => state.admin);
+  // console.log(users);
 
   useEffect(() => {
     dispatch(getAdminUsers());
@@ -15,7 +16,7 @@ const Users = () => {
 
   return (
     <section className="tableClass">
-      {loading === false ? (
+      {loading === false && users !== undefined? (
         <main>
           <table>
             <thead>
@@ -38,7 +39,8 @@ const Users = () => {
                       <img src={i.photo} alt="User" />
                     </td>
                     <td>{i.role}</td>
-                    <td>{i.createdAt.split("T")[0]}</td>
+                    {/* <td>{i.createdAt.split("T")[0]}</td> */}
+                    <td>{i.createAt}</td>
                   </tr>
                 ))}
             </tbody>

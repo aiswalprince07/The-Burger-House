@@ -1,7 +1,8 @@
 import express from "express";
 import passport from "passport";
-import { logout, myProfile } from "../controllers/user.js";
+import { getAdminUsers, logout, myProfile } from "../controllers/user.js";
 import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
+import { getAdminStats } from "../../frontend/src/redux/actions/admin.js";
 
 const router = express.Router();
 
@@ -23,6 +24,7 @@ router.get("/me",isAuthenticated,myProfile);
 router.get("/logout",logout);
 
 //admin routes
-router.get("/admin/users",isAuthenticated,authorizeAdmin,);
+router.get("/admin/users",isAuthenticated,authorizeAdmin,getAdminUsers);
+router.get("/admin/stats",isAuthenticated,authorizeAdmin,getAdminStats);
 
 export default router; 

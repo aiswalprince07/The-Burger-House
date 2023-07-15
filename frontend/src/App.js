@@ -32,7 +32,7 @@ import "./styles/contact.scss";
 import "./styles/cart.scss";
 import "./styles/shipping.scss";
 import "./styles/confirmOrder.scss";
-import "./styles/paymentsuccess.scss";
+import "./styles/paymentSuccess.scss";
 import "./styles/login.scss";
 import "./styles/profile.scss";
 import "./styles/table.scss";

@@ -20,7 +20,7 @@ const Profile = () => {
 
   const dispatch = useDispatch();
   const { loading, user } = useSelector((state) => state.auth);
-
+  // console.log('fffff');
   const logoutHandler = () => {
     dispatch(logout());
   };

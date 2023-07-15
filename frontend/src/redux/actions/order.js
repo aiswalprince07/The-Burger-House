@@ -71,8 +71,6 @@ export const paymentVerification =
           withCredentials: true,
         }
       );
-      console.log("dfdf");
-      console.log(data);
 
       dispatch({
         type: "paymentVerificationSuccess",
