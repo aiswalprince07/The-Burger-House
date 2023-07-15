@@ -9,6 +9,8 @@
     max-width: 900px;
     height: 100%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 
     > h1 {
       font: 500 3rem "Roboto";

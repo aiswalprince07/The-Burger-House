@@ -54,5 +54,3 @@ const Home = () => {
 };
 
 export default Home;
-
-//Que : ...options     => spread means?

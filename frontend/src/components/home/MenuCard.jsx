@@ -22,10 +22,10 @@ const MenuCard = ({itemNum,burgerSrc,price,title,handler,delay=0}) => {
             <img src={burgerSrc} alt={itemNum}></img>
             <h5>₹{price}</h5>
             <p>{title}</p>
-            <button>Buy Now</button>
+            <button onClick={() => handler(itemNum)}>Buy Now</button>
         </main>
     </motion.div>
   )
 }
 
-export default MenuCard
+export default MenuCard;

@@ -1,12 +1,21 @@
-import {configureStore} from "@reduxjs/toolkit";
-import {authReducer} from "./reducers/UserReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { cartReducer } from "./reducers/cartReducer";
+import { authReducer } from "./reducers/userReducer";
+import { orderReducer, ordersReducer } from "./reducers/orderReducer";
+import { adminReducer } from "./reducers/adminReducer";
 
 const store = configureStore({
-    reducer:{
-        auth : authReducer,
-    },
-})
+  reducer: {
+    auth: authReducer,
+    cart: cartReducer,
+    order: orderReducer,
+    orders: ordersReducer,
+    admin: adminReducer,
+  },
+});
 
 export default store;
 
-export const server = "api/v1"; 
+// export const server = "http://localhost:4000/api/v1/";
+
+export const server = "https://burgerhouse-phi.vercel.app/api/v1";

@@ -39,7 +39,8 @@
     width: 100%;
     height: 120%;
     // background-image: url("../assets/bg.svg");
-    background-image: url("../assets/bg-1.jpg");
+    // background-image: url("../assets/bg-1.jpg");
+    background-image: url(../assets/bg-001.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
@@ -51,6 +52,7 @@
 
 @media screen and (max-width: 600px) {
   .home {
+    background-color: none;
     > div {
       text-align: center;
       padding-top: 10rem;

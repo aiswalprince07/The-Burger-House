@@ -9,6 +9,9 @@ export const instance = new Razorpay({
   key_secret: process.env.RAZORPAY_API_SECRET,
 });
 
+app.get("/", (req, res, next) => {
+  res.send("<h1>Working</h1>");
+});
 
 app.get("/", (req, res, next) => { 
     res.send("<h1>Working</h1>");
